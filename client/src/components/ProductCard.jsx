@@ -21,7 +21,7 @@ import { useState } from 'react';
 
 
 
-const Rating = ({rating,numReviews}) => {
+const Rating = ({rating,numberOfReviews}) => {
    const [iconSize, setIconSize] = useState('14x')
    return (
       <Flex>
@@ -33,7 +33,7 @@ const Rating = ({rating,numReviews}) => {
            <StarIcon size={iconSize} w='14px' color={rating >= 5 ? 'orange.500' : 'gray.200'} />
         </HStack>
         <Text fontSize={'md'} fontWeight='hold' ml={'4px'}>
-              {`${numReviews} ${numReviews === 1 ? 'Review' :'Reviews'}`}
+              {`${numberOfReviews} ${numberOfReviews === 1 ? 'Review' :'Reviews'}`}
 
         </Text>
       </Flex>
@@ -87,7 +87,7 @@ const ProductCard = ({ product }) => {
             Sold Out
           </Badge>
         )}
-        {product.isNew && (
+        {product.productIsNew && (
           <Badge rounded={'full'} px="2" fontSize="0.8rem" colorScheme="green">
             New
           </Badge>
@@ -106,7 +106,7 @@ const ProductCard = ({ product }) => {
         </Link>
       </Flex>
       <Flex justifyContent={'space-between'} alignItems={'center'} py='2'>
-          <Rating rating={product.rating} numReviews={product.numReviews} />
+          <Rating rating={product.rating} numberOfReviews={product.numberOfReviews} />
 
       </Flex>
       <Flex justify={'space-between'}>
